@@ -1,9 +1,9 @@
 # Discord Channel IDs Dumper
 
 ## Overview
-`Discord Channel IDs Dumper` is a Python script designed to fetch and dump all channel IDs from a user's Discord account. This includes both direct message (DM) channels and guild (server) channels. The script organizes the retrieved channel IDs into separate text files, providing a straightforward way to collect channel IDs for various purposes.
+`Discord Channel IDs Dumper` is designed to fetch and dump all channel IDs from a user's Discord account. This includes both direct message (DM) channels and guild (server) channels, as well as organizes the retrieved channel IDs into separate text files, providing a straightforward way to collect channel IDs for various purposes.
 
-The script operates using Discord's API, leveraging a selfbot implementation (executed by a user account, not a bot account) and does not require any special permissions for channel fetching, as it utilizes the account's inherent access.
+Obviously using Discord's API and doesn't require any permissions for channel fetching (even private channels), as it utilizes the account's inherent access.
 
 ## Features
 - Fetches all Direct Message (DM) and guild channels.
@@ -18,7 +18,7 @@ The script operates using Discord's API, leveraging a selfbot implementation (ex
 - A Discord token (selfbot)
 
 ### Discord API Permissions
-No special permissions are required to run this script. The script works with any user account's default access permissions and does not require additional scopes, as it simply reads accessible data (channel IDs).
+No permissions are required to run this, works with any user account's default access permissions and doesm't require additional scopes, as it simply reads accessible data (channel IDs).
 
 > **Note:** Selfbots are against Discord’s Terms of Service. Use this script responsibly, and be aware of the risks associated with selfbot usage, including account suspension or banning.
 
@@ -62,7 +62,7 @@ Channel-IDs/
 ```
 
 ## Interaction with Discord API
-This script uses Discord's API through the `discord.py` library to fetch the following data:
+ Again, uses Discord's API through the `discord.py` library to fetch the following data:
 - **Direct Messages (DM) Channels**: Every private conversation the user has, including any open DM channels.
 - **Guild Channels**: All channels from every server (guild) the user is part of.
 
@@ -75,13 +75,13 @@ This script uses Discord's API through the `discord.py` library to fetch the fol
 ### Common Issues and Solutions
 
 - **Bot Fails to Login:**
-  Ensure that the token provided is correct. Tokens are case-sensitive and should not have any leading or trailing spaces.
+  Make sure the token provided is correct. Tokens are case-sensitive and shouldn't have any leading or trailing spaces.
   - *Error*: `401 Unauthorized`
   - *Solution*: Check if the token has expired or is invalid.
 
 - **Stuck After Fetching DMs:**
   The script may seem to hang after fetching DM channels. This might be due to rate-limiting issues when fetching a large number of guild channels.
-  - *Solution*: Ensure the account has a reasonable number of servers and channels.
+  - *Solution*: Make sure the account has a reasonable number of servers and channels, 200 servers is the cap but channels weithin those servers are a different story.
 
 - **Rate Limiting:**
   If you are part of many large servers, the API may start throttling requests.
